@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage"
 import LoginPage from "./components/LoginPage"
 import RegisterPage from "./components/RegisterPage"
 import AdminPanel from "./components/AdminPanel"
+import ClubVotingPage from "./components/ClubVotingPage"
 
 const App = () => {
   const { user, logout, login, setUser } = useContext(AuthContext)
@@ -69,8 +70,9 @@ const App = () => {
         <Header user={user} logout={logout} showNotification={showNotification} />
         <main className="main-content">
           <Routes>
-            <Route
-              path="/"
+            <Route path="/" element={<ClubVotingPage user={user} showNotification={showNotification} />} />
+            {/* <Route
+              path="/legacy"
               element={
                 <HomePage
                   votes={votes}
@@ -81,7 +83,7 @@ const App = () => {
                   showNotification={showNotification}
                 />
               }
-            />
+            /> */}
             <Route
               path="/login"
               element={
